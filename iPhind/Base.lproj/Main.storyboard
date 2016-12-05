@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,23 +18,88 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="mainView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Testing testing 123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGJ-jA-h1W">
-                                <rect key="frame" x="88" y="28" width="145" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahT-ue-CHy" userLabel="compassButton">
+                                <rect key="frame" x="16" y="498" width="50" height="50"/>
+                                <state key="normal" image="compassButton"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qH9-bY-kLP" userLabel="alarmButton">
+                                <rect key="frame" x="135" y="498" width="50" height="50"/>
+                                <state key="normal" image="alarmIcon"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9v-Hg-HLv" userLabel="optionsButton">
+                                <rect key="frame" x="254" y="498" width="50" height="50"/>
+                                <state key="normal" image="optionsButton"/>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8RJ-ct-BCf" userLabel="compassView">
+                                <rect key="frame" x="16" y="64" width="288" height="426"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pointerIcon" translatesAutoresizingMaskIntoConstraints="NO" id="CTV-Pn-mYq" userLabel="PointerIcon">
+                                        <rect key="frame" x="44" y="114" width="200" height="198"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubF-IS-oV7" userLabel="pingButton">
+                                        <rect key="frame" x="105" y="363" width="78" height="55"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <state key="normal" title="Ping">
+                                            <color key="titleColor" red="1" green="0.96872151030569553" blue="0.06213090135650734" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pingButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZtF-1c-SvA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.33606516750093929" green="0.46686220932557876" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="CTV-Pn-mYq" firstAttribute="centerY" secondItem="8RJ-ct-BCf" secondAttribute="centerY" id="HNl-M5-doP"/>
+                                    <constraint firstItem="CTV-Pn-mYq" firstAttribute="centerX" secondItem="8RJ-ct-BCf" secondAttribute="centerX" id="QV7-it-cWj"/>
+                                </constraints>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ShK-1g-TE4">
+                                <rect key="frame" x="16" y="20" width="288" height="44"/>
+                                <items>
+                                    <navigationItem title="IPhind" id="R9U-P5-AVz"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.27111341466818251" green="0.37663114178423657" blue="0.80672869694960214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ShK-1g-TE4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="3bQ-8l-0oz"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="x9v-Hg-HLv" secondAttribute="bottom" constant="20" id="CyL-VC-iCP"/>
+                            <constraint firstItem="8RJ-ct-BCf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="44" id="JKG-ro-OVf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qH9-bY-kLP" secondAttribute="bottom" constant="20" id="MOu-VT-is2"/>
+                            <constraint firstItem="qH9-bY-kLP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TYR-mM-6R2"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="ShK-1g-TE4" secondAttribute="leading" id="fhh-mu-7mm"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8RJ-ct-BCf" secondAttribute="bottom" constant="78" id="jNN-3O-XcL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="x9v-Hg-HLv" secondAttribute="trailing" id="k28-q2-7FK"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="ahT-ue-CHy" secondAttribute="leading" id="njn-yi-8m5"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="8RJ-ct-BCf" secondAttribute="leading" id="t5v-Oy-5dJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ShK-1g-TE4" secondAttribute="trailing" id="u8W-Nv-cWH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8RJ-ct-BCf" secondAttribute="trailing" id="yQg-g1-1oc"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ahT-ue-CHy" secondAttribute="bottom" constant="20" id="yjd-HE-Iqe"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="alarmButton" destination="qH9-bY-kLP" id="aC4-rK-qwt"/>
+                        <outlet property="compassButton" destination="ahT-ue-CHy" id="lPu-7B-GBG"/>
+                        <outlet property="compassView" destination="8RJ-ct-BCf" id="38n-j5-ERT"/>
+                        <outlet property="optionsButton" destination="x9v-Hg-HLv" id="wGv-h8-rKx"/>
+                        <outlet property="pingButton" destination="ubF-IS-oV7" id="ZER-Gj-XoW"/>
+                        <outlet property="pointerIcon" destination="CTV-Pn-mYq" id="u8X-tP-cbs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="123.75" y="133.09859154929578"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="alarmIcon" width="50" height="50"/>
+        <image name="compassButton" width="50" height="50"/>
+        <image name="optionsButton" width="50" height="50"/>
+        <image name="pointerIcon" width="200" height="198"/>
+    </resources>
 </document>

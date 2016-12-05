@@ -11,11 +11,18 @@ import CoreBluetooth
 
 class ViewController: UIViewController {
     
-    var bluetoothPeripheralManager: CBPeripheralManager?
-
+    @IBOutlet weak var compassButton: UIButton!
+    @IBOutlet weak var alarmButton: UIButton!
+    @IBOutlet weak var optionsButton: UIButton!
+    
+    @IBOutlet weak var compassView: UIView!
+    @IBOutlet weak var pingButton: UIButton!
+    @IBOutlet weak var pointerIcon: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        //let options = [CBCentralManagerOptionShowPowerAlertKey:0]
+//        bluetoothPeripheralManager = CBPeripheralManager(delegate: self, queue: nil, options: options)
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,6 +30,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func pingButton(sender: UIButton) {
+        UIView.animate(withDuration: 2.0, animations: {
+            self.pointerIcon.transform = CGAffineTransform(rotationAngle: (180.0 * CGFloat(M_PI)) / 180.0)
+        })
+    }
 
 }
 
